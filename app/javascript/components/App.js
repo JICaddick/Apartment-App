@@ -80,9 +80,6 @@ createApartment = (newListing) => {
             <Route component={NotFound}/>
           </Switch>
         </Router>
-        
-        
-  
     )
   }
 }
