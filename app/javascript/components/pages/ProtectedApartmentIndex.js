@@ -15,17 +15,17 @@ class ProtectedApartmentIndex extends Component {
                 <Row sm="3">
                     {this.props.apartments && this.props.apartments.map(apartment => {
                         return(
-                    <Card key ={apartment.id}>
-                        <CardImg top width="100%" src={apartment.image} alt="Card image cap" ></CardImg>
-                        <CardBody>
-                            <CardTitle>{apartment.price} /month </CardTitle>
-                            <CardSubtitle>{apartment.street} {apartment.city} </CardSubtitle>
-                            <CardSubtitle>{apartment.bedrooms} Bedroom, {apartment.bathroom} Bathroom</CardSubtitle>
-                            <Button>More Details</Button>
-                        </CardBody>
-                    </Card>
+                        <Card key ={apartment.id}>
+                            <CardImg top width="100%" src={apartment.image} alt="Card image cap" ></CardImg>
+                                <CardBody>
+                                    <CardTitle>{apartment.price} /month </CardTitle>
+                                    <CardSubtitle>{apartment.street} {apartment.city} </CardSubtitle>
+                                    <CardSubtitle>{apartment.bedrooms} Bedroom, {apartment.bathroom} Bathroom</CardSubtitle>
+                                    <Button>More Details</Button>
+                                </CardBody>
+                        </Card>
                         )
-                        })}
+                    })}
                 </Row>
             </div>
         </>

@@ -1,29 +1,49 @@
 import React, { Component } from 'react'
-import { Card, CardTitle, CardSubtitle, CardBody, CardImg, Row, Col } from 'reactstrap'
+import { NavLink } from 'react-router-dom'
+import { CardGroup, CardImg } from 'reactstrap'
+import { Button, Card, CardBody, CardTitle, CardText, Container } from 'reactstrap'
 
 export default class ApartmentIndex extends Component {
   render() {
     return (
       <>
-      <h3>Find your Dream Apartment!</h3>
-      <Row>
-        {this.props.apartments && this.props.apartments.map(apartments => {
-          return(
-        <Col sm={4}>
-          <Card>
-            <CardImg top width="100%" src={apartments.image} alt="Card image cap" />
-            <CardBody>
-              <CardTitle>{apartments.price}/month</CardTitle>
-              <CardSubtitle>{apartments.street}, {apartments.city} </CardSubtitle>
-              <CardSubtitle>{apartments.bedrooms} Bedroom, {apartments.bathrooms} Bath</CardSubtitle>
-            </CardBody>
-          </Card>
-        </Col>
-      )
-    })}
-      </Row>
-      </>
+      <h3>ApartmentIndex</h3>
 
+      <Container className='indexText'>
+        <h2>Browse all apartments</h2>
+        <p>Also you can list your own apartment for rent!</p>
+      </Container>
+
+      <Container>
+        <CardGroup>
+          {this.props.apartments && this.props.apartments.map(apartment => {
+            return (
+              <Col sm='4' md='4' lg='4'>
+                <Card className='card'>
+                  <CardImg top width='100%' src={apartment.image} alt='Card image cap' />
+                    <CardBody>
+                      <CardTitle>
+                        {apartment.price}
+                        {apartment.location}
+                        {apartment.bath}
+                        {apartment.bed}
+                        {apartment.image}
+                      </CardTitle>
+                      <CardText>
+                        <p>lorem ipsum</p>
+                      </CardText>
+                      <Button color='primary'>
+                        <NavLink to={`/apartmentshow/${apartment.id}`}>View All</NavLink>
+                      </Button>
+                    </CardBody>
+                </Card>
+              </Col>
+            )
+          }
+          )}
+        </CardGroup>
+      </Container>
+      </>
     )
   }
 }

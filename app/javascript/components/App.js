@@ -7,12 +7,12 @@ import ApartmentShow from './pages/ApartmentShow'
 import ApartmentNew from './pages/ApartmentNew'
 import ApartmentEdit from './pages/ApartmentEdit'
 import NotFound from './pages/NotFound'
+import ProtectedApartmentIndex from './pages/ProtectedApartmentIndex'
 import {
   BrowserRouter as Router,
   Route,
   Switch
 } from 'react-router-dom'
-import ProtectedApartmentIndex from './pages/ProtectedApartmentIndex'
 
 class App extends Component {
   constructor(props) {
@@ -47,7 +47,28 @@ createApartment = (newListing) => {
   .catch(errors => console.log("New listing errors: ", errors))
 }
 
-
+  updateApartment = (editapartment, id) => {
+    fetch(`/apartments/${id}`, {
+      body: JSON.stringify(editapartment),
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(apartment => {
+        this.setState({
+          apartments: this.state.apartments.map(apartment => {
+            if (apartment.id === id) {
+              return apartment = editapartment
+            } else {
+              return apartment
+            }
+          })
+        })
+      })
+      .catch(error => console.log(error))
+  }
 
   render() {
     const {

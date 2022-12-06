@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 
-export default class NotFound extends Component {
+class NotFound extends Component {
   render() {
     return (
-      <h3>NotFound</h3>
+      <h3>NotFound. Unlucky bud.</h3>
     )
   }
 }
+
+export default NotFound

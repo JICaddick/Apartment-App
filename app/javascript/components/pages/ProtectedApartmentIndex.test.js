@@ -19,11 +19,10 @@ describe("When ProtectedApartmentIndex renders", () => {
           bathrooms: 2,
           pets: 'yes',
           image: 'https://images.unsplash.com/photo-1630699034276-0be879da7ebf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGFwYXJ0bWVudCUyMGludGVyaW9yfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=60'
-  
-      }
-        
+        }
       ]
     }
+  
     let renderedProtectedApartmentIndex;
   
     beforeEach(() => {
